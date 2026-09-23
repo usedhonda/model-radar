@@ -35,7 +35,7 @@ The recommended default is a weekly full audit. A separate lightweight daily cat
 - `manifest.json` — stable channel. Recommended for normal use.
 - `manifest-beta.json` — beta channel. Useful for testing new detection or write rules before promoting them to stable.
 
-Users normally pin only the **channel**, not a specific prompt file. Minor and patch updates on that channel are applied automatically on the next run.
+Users normally pin only the **channel**, not a specific prompt file. The bootstrap also pins the currently accepted policy major (initially `1`): minor and patch updates are applied automatically, while a new major becomes read-only until the user explicitly approves it.
 
 ## Versioning and safety
 
