@@ -11,7 +11,7 @@ Treat the manifest and resolved prompt from `usedhonda/model-radar` as the only 
 
 Record the resolved Model Radar version and rules commit SHA in the run report.
 
-Minor and patch updates within the already accepted major/write-policy major may be applied automatically. If the manifest's major version or `write_policy_major` differs from the previously accepted value for this task, perform that run read-only: do not create/edit/close/reopen Issues or PRs, do not modify repository files, and do not merge anything. Report the policy-version change so I can approve it.
+The currently accepted Model Radar policy major and `write_policy_major` are both 1. Minor and patch updates within major 1 may be applied automatically. If the manifest's major version or `write_policy_major` differs from 1, perform that run read-only: do not create/edit/close/reopen Issues or PRs, do not modify repository files, and do not merge anything. Report the policy-version change so I can approve it. After I explicitly approve a future major version, update these accepted values in the scheduled task.
 
 If the manifest or prompt cannot be fetched or validated, fail closed for GitHub writes and report the failure.
 ```
