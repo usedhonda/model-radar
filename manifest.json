@@ -1,0 +1,8 @@
+{
+  "name": "Model Radar",
+  "channel": "stable",
+  "version": "1.0.0",
+  "prompt": "prompts/scheduled-audit-v1.0.0.md",
+  "minimum_bootstrap_version": 1,
+  "write_policy_major": 1
+}
