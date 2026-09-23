@@ -8,7 +8,7 @@ Model Radar itself is intentionally lightweight: the scheduled task contains onl
 
 ## Why this design
 
-AI model lifecycles move faster than ordinary software dependencies. Model IDs disappear, aliases silently redirect, prices change, and new models can make an older choice economically obsolete long before it is formally deprecated.
+AI model lifecycles move faster than ordinary software dependencies. Model IDs disappear, aliases silently redirect, prices change, and new models can make an older choice economically obsolete long before it is formally deprecated. New releases can also invalidate model-aware code that never calls the model directly: pricing tables, context assumptions, capability gates, model-family regexes, cache formulas, and version whitelists can all become stale overnight.
 
 A static prompt copied into a scheduler becomes stale. Model Radar separates **bootstrap** from **policy**:
 
@@ -121,6 +121,12 @@ A compatible successor has a concrete advantage for the repository's actual use 
 
 The current identifier still works only through a legacy alias, compatibility redirect, or temporary routing layer.
 
+### P4 — model-assumption drift
+
+A new model or provider change makes repository logic about pricing, context windows, cache rates, model-family matching, capabilities, billing classification, or provider schema stale or brittle — even if the repository never calls that model directly.
+
+Model Radar performs a release-triggered reverse-impact pass: recent model/provider changes are matched against model-sensitive code such as pricing maps, version whitelists, regexes, fallback buckets, token/context assumptions, and capability gates. Structural fixes are preferred over adding one more version string to a growing whitelist.
+
 ## Issues should be migration memos, not warnings
 
 Every created Issue should give the maintainer enough information to make the change without repeating the research. Include:
@@ -195,7 +201,7 @@ Each scheduled run should report concisely:
 
 - Model Radar version and rules commit SHA
 - number of repositories scanned and coverage limitations
-- findings by P0/P1/P2/P3
+- findings by P0/P1/P2/P3/P4
 - Issues created/updated
 - PRs created
 - PRs auto-merged
