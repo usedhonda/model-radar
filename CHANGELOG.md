@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+- Add release-triggered reverse-impact audits for newly released models and recent provider changes.
+- Detect model-sensitive code even when a repository does not directly call the model.
+- Add P4 `model-assumption drift` findings for stale pricing, context, capability, model-family matching, billing, cache, and provider-schema assumptions.
+- Prefer structural fixes over repeatedly extending brittle model/version whitelists.
+- Treat tests that encode production model-awareness as evidence rather than automatically excluding them.
+
 ## 1.0.0
 
 Initial stable policy.
