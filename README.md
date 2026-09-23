@@ -24,11 +24,13 @@ So there are two independent update paths:
 
 ## Quick start
 
-Prerequisite: connect GitHub to ChatGPT and give it access to the repositories you want audited.
+Install Model Radar by creating a recurring task in **your own ChatGPT account**. The task reads this public repository for its audit policy, then checks only the GitHub repositories you have connected and permitted it to access (including private repositories, if you select them). Copying the prompt does not grant repository access by itself.
 
-Create a recurring ChatGPT Scheduled Task using the bootstrap prompt in [`examples/chatgpt-schedule.md`](examples/chatgpt-schedule.md).
+1. In ChatGPT, open **Settings → Apps**, connect **GitHub**, and select the repositories you want audited. Availability and permissions depend on your account and workspace. See [Connecting GitHub to ChatGPT](https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt).
+2. Open **Scheduled** in ChatGPT and create a recurring task. Paste the bootstrap prompt from [`examples/chatgpt-schedule.md`](examples/chatgpt-schedule.md) into the task instructions. Set a weekly schedule for the full audit and review the task before saving. See [Scheduled tasks in ChatGPT](https://help.openai.com/en/articles/10291617-tasks-in-chatgpt).
+3. Review the first run's report for repository coverage and any permission or approval requests. GitHub write actions depend on the access you granted and may require your approval; the prompt alone does not authorize them.
 
-The recommended default is a weekly full audit. A separate lightweight daily catalog-change watch can be added later if you want faster notification of new releases or retirement notices.
+This setup runs on the schedule you choose, not on GitHub events. You can add a separate daily catalog-change watch later if you want faster notices.
 
 ## Stable and beta channels
 
